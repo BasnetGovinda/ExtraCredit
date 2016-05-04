@@ -1,6 +1,8 @@
 package com.ec.model;
 
 import javax.persistence.CascadeType;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -113,4 +115,11 @@ public class Movie {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", genere=" + genere + ", cover=" + Arrays.toString(cover)
+				+ ", rating=" + rating + ", year=" + year + "]";
+	}
+
+	
 }

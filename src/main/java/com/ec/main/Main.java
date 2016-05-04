@@ -41,8 +41,23 @@ public class Main {
 		chara.add(new Character("ghyabashayma", art, m));
 		MovieDoaImplementation mimpl = new MovieDoaImplementation();
 		mimpl.insert(m);
+		Artist art1 = new Artist("rma1", " Nepal1", new Date());
+		List<Person> artlist1 = new ArrayList<Person>();
+		artlist.add(art1);
+		List<Character> chara1 = new ArrayList<>();
+		Movie m1 = new Movie("jai biru1", Genere.ACTION, null, 10, new Date(), artlist1, chara1);
+		chara.add(new Character("ghyabashayma1", art1, m1));
+	
+		mimpl.insert(m1);
 		m.setName("tero bau ko tauko");
 		mimpl.update(m);
+		List<Movie> testmov = mimpl.serachByMovieName("tero bau ko tauko");
+
+		System.out.println("movie searched by name ");
+		for (Movie movie : testmov) {
+
+			System.out.println(movie);
+		}
 		mimpl.delete(m.getId());
 	}
 
