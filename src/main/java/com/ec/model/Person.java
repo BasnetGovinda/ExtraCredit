@@ -21,15 +21,10 @@ public abstract class Person {
 	private int id;
 	private String name;
 	private String place_of_birth;
-	
-	@ManyToMany
-	private List<Movie> movie;
-	@ManyToMany(mappedBy = "dir")
-	private List<Director> directors;
-	@ManyToMany(mappedBy = "art")
-	private List<Artist> artists;
-	@ManyToMany(mappedBy = "usr")
-	private List<User> users;
+
+	/*
+	 * @ManyToMany private List<Movie> movie;
+	 */
 
 	@Temporal(TemporalType.DATE)
 	private Date DOB;
@@ -59,38 +54,6 @@ public abstract class Person {
 
 	public void setPlace_of_birth(String place_of_birth) {
 		this.place_of_birth = place_of_birth;
-	}
-
-	public List<Movie> getMovie() {
-		return movie;
-	}
-
-	public void setMovie(List<Movie> movie) {
-		this.movie = movie;
-	}
-
-	public List<Director> getDirectors() {
-		return directors;
-	}
-
-	public void setDirectors(List<Director> directors) {
-		this.directors = directors;
-	}
-
-	public List<Artist> getArtists() {
-		return artists;
-	}
-
-	public void setArtists(List<Artist> artists) {
-		this.artists = artists;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
 	}
 
 	public Date getDOB() {

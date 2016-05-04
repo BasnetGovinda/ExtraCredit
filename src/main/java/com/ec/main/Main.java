@@ -13,9 +13,11 @@ import com.ec.dao.MovieDoa;
 import com.ec.dao.MovieDoaImplementation;
 import com.ec.model.Artist;
 import com.ec.model.Character;
+import com.ec.model.Director;
 import com.ec.model.Genere;
 import com.ec.model.Movie;
 import com.ec.model.Person;
+import com.mysql.fabric.xmlrpc.base.Data;
 
 import Config.Manager;
 
@@ -34,20 +36,24 @@ public class Main {
 		 */
 
 		Artist art = new Artist("rma", " Nepal", new Date());
-		List<Person> artlist = new ArrayList<Person>();
+		List<Artist> artlist = new ArrayList<Artist>();
 		artlist.add(art);
 		List<Character> chara = new ArrayList<>();
-		Movie m = new Movie("jai biru", Genere.ACTION, null, 10, new Date(), artlist, chara);
+		Movie m = new Movie("jai biru", Genere.COMDEY, null, 10, new Date(), null, artlist, null, chara);
+
 		chara.add(new Character("ghyabashayma", art, m));
 		MovieDoaImplementation mimpl = new MovieDoaImplementation();
 		mimpl.insert(m);
-		
-		
+		List<Director> dir = new ArrayList<>();
+		dir.add(new Director());
+
 		Artist art1 = new Artist("rma1", " Nepal1", new Date());
-		List<Person> artlist1 = new ArrayList<Person>();
+		List<Artist> artlist1 = new ArrayList<Artist>();
 		artlist.add(art1);
 		List<Character> chara1 = new ArrayList<>();
-		Movie m1 = new Movie("jai biru1", Genere.ACTION, null, 10, new Date(), artlist1, chara1);
+		Movie m1 = new Movie("name", Genere.ACTION, null, 12, new Date(), null, artlist1, null, chara1);
+		// new Movie("name", Genere.ACTION, null, 12, new Date(), null,
+		// artlist1, null, chara1);
 		chara.add(new Character("ghyabashayma1", art1, m1));
 
 		mimpl.insert(m1);
@@ -68,7 +74,16 @@ public class Main {
 			System.out.println(movie);
 		}
 
+		List<Movie> searchByArtistName = (List<Movie>) mimpl.serachByArtistName("rma");
+
+		System.out.println("movie searched by artist name  ");
+		for (Movie movie : searchByArtistName) {
+
+			System.out.println(movie);
+		}
+
 		// mimpl.delete(m.getId());
+
 	}
 
 }

@@ -3,6 +3,7 @@ package com.ec.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -60,10 +61,10 @@ public class Artist extends Person {
 		this.biblography = biblography;
 	}
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "artists")
 	private List<Movie> art;
-	
-	@OneToOne(mappedBy="artist")
+
+	@OneToOne(mappedBy = "artist")
 	private Character charac;
 
 }
