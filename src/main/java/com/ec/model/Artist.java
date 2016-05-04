@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Artist extends Person {
@@ -27,6 +28,30 @@ public class Artist extends Person {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Byte[] photo) {
+		this.photo = photo;
+	}
+
+	public List<Movie> getArt() {
+		return art;
+	}
+
+	public void setArt(List<Movie> art) {
+		this.art = art;
+	}
+
+	public Character getCharac() {
+		return charac;
+	}
+
+	public void setCharac(Character charac) {
+		this.charac = charac;
+	}
+
 	public String getBiblography() {
 		return biblography;
 	}
@@ -37,5 +62,8 @@ public class Artist extends Person {
 
 	@ManyToMany
 	private List<Movie> art;
+	
+	@OneToOne(mappedBy="artist")
+	private Character charac;
 
 }
