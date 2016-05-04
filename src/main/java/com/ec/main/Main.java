@@ -41,8 +41,9 @@ public class Main {
 		chara.add(new Character("ghyabashayma", art, m));
 		MovieDoaImplementation mimpl = new MovieDoaImplementation();
 		mimpl.insert(m);
-
-		mimpl.delete(m);
+		m.setName("tero bau ko tauko");
+		mimpl.update(m);
+		mimpl.delete(m.getId());
 	}
 
 }
